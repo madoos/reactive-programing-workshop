@@ -1,3 +1,5 @@
+const util = require('util')
+
 const curryN = (arity, fn) => {
     const curried = (...args) => {
         return arity === args.length
@@ -51,6 +53,13 @@ const projection = curry((descriptor, src) =>
     }, descriptor)
 )
 
+const stdout = x => {
+    const normalized = util.inspect(x, { showHidden : false, depth : null })
+    process.stdout.clearLine()
+    process.stdout.cursorTo(0)
+    process.stdout.write(normalized)
+}
+
 module.exports = {
     curryN,
     curry,
@@ -58,5 +67,6 @@ module.exports = {
     map,
     isFunction,
     get,
-    projection
+    projection,
+    stdout
 }
