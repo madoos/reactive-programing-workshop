@@ -1,0 +1,54 @@
+{
+  "name": "rx-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "serve:coverage": "http-server coverage/ -o",
+    "test:coverage": "npm test"
+  },
+  "author": {
+    "name": "kairos DS",
+    "email": "campus-app@kairosds.com",
+    "url": "https://www.kairosds.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://www.kairosds.com/",
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "conventional-changelog-cli": "^2.0.1",
+    "eslint": "^5.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier-eslint-cli": "^4.7.1",
+    "http-server": "^0.11.1",
+    "lint-staged": "^7.2.0",
+    "nsp": "^3.2.1",
+    "jest": "^23.3.0",
+    "husky": "^0.14.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --single-quote --bracket-spacing true --print-width 80 --semi --write",
+      "eslint",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "faker": "^4.1.0"
+  }
+}
