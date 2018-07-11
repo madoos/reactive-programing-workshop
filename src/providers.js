@@ -4,7 +4,7 @@ const faker = require('faker')
 const facebook = ({ rate }) => {
     const posts = new EventEmitter()
 
-    setInterval(
+    const id = setInterval(
         () =>
             posts.emit('post', {
                 user             : faker.name.firstName(),
@@ -15,13 +15,15 @@ const facebook = ({ rate }) => {
         rate
     )
 
+    posts.close = () => clearInterval(id)
+
     return posts
 }
 
 const twitter = ({ rate }) => {
     const twits = new EventEmitter()
 
-    setInterval(
+    const id = setInterval(
         () =>
             /*eslint camelcase: 0*/
             twits.emit('twit', {
@@ -33,13 +35,15 @@ const twitter = ({ rate }) => {
         rate
     )
 
+    twits.close = () => clearInterval(id)
+
     return twits
 }
 
 const instagram = ({ rate }) => {
     const posers = new EventEmitter()
 
-    setInterval(
+    const id = setInterval(
         () =>
             posers.emit('hipster', {
                 name      : faker.name.firstName(),
@@ -54,6 +58,8 @@ const instagram = ({ rate }) => {
             }),
         rate
     )
+
+    posers.close = () => clearInterval(id)
 
     return posers
 }
