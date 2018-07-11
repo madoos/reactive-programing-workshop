@@ -69,3 +69,13 @@ const facebook = providers.facebook({ rate: 100 })
 const post$ = Observable.fromEvent("post", facebook)
 post$.subscribe({ next: console.log })
 ```
+
+# Challenge 3
+
+Implements the operators:
+
+- map
+- filter
+- scan
+- merge
+- pipe
