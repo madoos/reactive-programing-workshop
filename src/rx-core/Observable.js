@@ -44,6 +44,18 @@ class Observable {
             }
         })
     }
+
+    static sequence(generator, ms) {
+        const it = generator()
+
+        return new Observable(observer => {
+            const id = setInterval(() => {
+                observer.next(it.next())
+            }, ms)
+
+            return () => clearInterval(id)
+        })
+    }
 }
 
 module.exports = Observable
