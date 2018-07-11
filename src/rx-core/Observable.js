@@ -60,6 +60,18 @@ class Observable {
             return () => clearInterval(id)
         })
     }
+
+    static interval(ms) {
+        let i = 0
+
+        return new Observable(observer => {
+            const id = setInterval(() => {
+                observer.next(i++)
+            }, ms)
+
+            return () => clearInterval(id)
+        })
+    }
 }
 
 module.exports = Observable

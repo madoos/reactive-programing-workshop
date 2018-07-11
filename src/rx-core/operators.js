@@ -64,10 +64,30 @@ const pipe = (...operators) => src => {
     return operators.reduce((stream, operator) => operator(stream), src)
 }
 
+const take = curry((n, src) => {
+    return Observable.create(observer => {
+        let taken = 0
+        const subscription = src.subscribe({
+            next : x => {
+                if (n > taken++) {
+                    observer.next(x)
+                } else {
+                    observer.complete()
+                }
+            },
+            error    : e => observer.error(e),
+            complete : () => observer.complete()
+        })
+
+        return () => subscription.unsubscribe()
+    })
+})
+
 module.exports = {
     map,
     filter,
     scan,
     merge,
-    pipe
+    pipe,
+    take
 }
