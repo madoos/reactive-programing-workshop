@@ -31,7 +31,8 @@ facebook:
     user             : 'Ahmad',
     picture          : 'http://lorempixel.com/640/480/people',
     post             : 'Mollitia doloribus maxime.',
-    positiveFeedback : false
+    positiveFeedback : false,
+    provider         : 'facebook'
 }
 ```
 
@@ -42,7 +43,9 @@ twitter:
     user_name         : 'Boris',
     profile_image     : 'http://lorempixel.com/640/480/people',
     twit              : 'Quaerat dicta iusto consequatur ex repellendus necessitatibus.',
-    positive_feedback : true
+    positive_feedback : true,
+    provider          : 'twitter'
+
 }
 ```
 
@@ -58,7 +61,8 @@ instagram
         'http://lorempixel.com/640/480/food'
     ],
     lifeStyle : 'Dolore aut unde aut recusandae facilis consequatur.',
-    feedback  : true
+    feedback  : true,
+    provider  : 'instagram'
 }
 ```
 

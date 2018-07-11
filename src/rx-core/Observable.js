@@ -17,6 +17,10 @@ class Observable {
         return Subscription.create(unsubscribedHandler)
     }
 
+    pipe(...operators) {
+        return operators.reduce((stream, operator) => operator(stream), this)
+    }
+
     static fromArray(xs) {
         return new Observable(observer => {
             xs.forEach(x => observer.next(x))

@@ -10,7 +10,8 @@ const facebook = ({ rate }) => {
                 user             : faker.name.firstName(),
                 picture          : faker.image.people(),
                 post             : faker.lorem.paragraph(),
-                positiveFeedback : faker.random.boolean()
+                positiveFeedback : faker.random.boolean(),
+                provider         : 'facebook'
             }),
         rate
     )
@@ -30,7 +31,8 @@ const twitter = ({ rate }) => {
                 user_name         : faker.name.firstName(),
                 profile_image     : faker.image.people(),
                 twit              : faker.lorem.sentence(),
-                positive_feedback : faker.random.boolean()
+                positive_feedback : faker.random.boolean(),
+                provider          : 'twitter'
             }),
         rate
     )
@@ -54,7 +56,8 @@ const instagram = ({ rate }) => {
                     faker.image.food()
                 ],
                 lifeStyle : faker.lorem.paragraphs(),
-                feedback  : faker.random.boolean()
+                feedback  : faker.random.boolean(),
+                provider  : 'instagram'
             }),
         rate
     )
