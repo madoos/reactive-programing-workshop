@@ -23,6 +23,7 @@ const twitter = ({ rate }) => {
 
     setInterval(
         () =>
+            /*eslint camelcase: 0*/
             twits.emit('twit', {
                 user_name         : faker.name.firstName(),
                 profile_image     : faker.image.people(),

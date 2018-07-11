@@ -1,6 +1,6 @@
 const providers = require('../src/providers')
 
-const facebook = providers.facebook({ rate : 1000 })
+const facebook = providers.facebook({ rate : 100 })
 facebook.on('post', console.log)
 
 const twitter = providers.twitter({ rate : 1000 })
