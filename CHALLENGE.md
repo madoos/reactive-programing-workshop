@@ -1,4 +1,4 @@
-# Challenge
+# Challenge 1
 
 - Observable
 - Observer
@@ -46,4 +46,26 @@ numbers.subscribe(observer)
 ```javascript
 const subscription = numbers.subscribe(observer)
 subscription.unsubscribe()
+```
+
+# Challenge 2
+
+Transform data structures to Observables.
+
+implement the functions:
+
+- fromArray(xs)
+- fromEvent(ee)
+
+```javascript
+const numbers$ = Observable.fromArray([1, 2, 3])
+numbers$.subscribe({ next: console.log })
+```
+
+```javascript
+const providers = require("../src/providers")
+
+const facebook = providers.facebook({ rate: 100 })
+const post$ = Observable.fromEvent("post", facebook)
+post$.subscribe({ next: console.log })
 ```
